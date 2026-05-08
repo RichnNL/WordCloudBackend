@@ -28,7 +28,7 @@ public static class WordCounterControllerExtensions
     {
         group.MapPost("/", ([FromBody] string text) => 
             {
-                var command = new GetWordCountByStringCommand();
+                var command = new GetWordEntriesByStringCommand();
                 var sortedWordCounts = command.Execute(text);
                 
                 return Results.Ok(sortedWordCounts);
@@ -47,7 +47,7 @@ public static class WordCounterControllerExtensions
     {
         group.MapGet("/{text}", ([FromRoute] string text) => 
             {
-                var command = new GetWordCountByStringCommand();
+                var command = new GetWordEntriesByStringCommand();
                 var sortedWordCounts = command.Execute(text);
                 
                 return Results.Ok(sortedWordCounts);

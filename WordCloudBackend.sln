@@ -5,6 +5,8 @@ VisualStudioVersion = 18.5.11723.231 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCloudBackend", "WordCloudBackend\WordCloudBackend.csproj", "{F96CC012-9C01-4A79-A989-6BB706384FC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCloudBackend.Features.WordCounter.Tests", "WordCloudBackend.Features.WordCounter.Tests\WordCloudBackend.Features.WordCounter.Tests.csproj", "{91FD5C0B-796E-4B38-849D-2FFB0E1E76C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F96CC012-9C01-4A79-A989-6BB706384FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F96CC012-9C01-4A79-A989-6BB706384FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F96CC012-9C01-4A79-A989-6BB706384FC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FD5C0B-796E-4B38-849D-2FFB0E1E76C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FD5C0B-796E-4B38-849D-2FFB0E1E76C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FD5C0B-796E-4B38-849D-2FFB0E1E76C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FD5C0B-796E-4B38-849D-2FFB0E1E76C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
