@@ -9,9 +9,7 @@ public class TextParserService : ITextParserService
         {
             return string.Empty;
         }
-
-        // Replace 's or 'S with "s" to preserve the plural/possessive meaning as a single word 
-        // e.g. "market's" -> "markets"
+        
         text = text.Replace("'s", "s", StringComparison.OrdinalIgnoreCase);
 
         text = text.Trim();
