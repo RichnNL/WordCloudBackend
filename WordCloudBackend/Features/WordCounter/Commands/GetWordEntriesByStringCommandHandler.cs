@@ -1,7 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using WordCloudBackend.Features.WordCounter.Extensions;
-using WordCloudBackend.Features.WordCounter.Models;
-using WordCloudBackend.Features.WordCounter.Models.Enums;
+﻿using WordCloudBackend.Features.WordCounter.Extensions;
 
 namespace WordCloudBackend.Features.WordCounter.Commands;
 
