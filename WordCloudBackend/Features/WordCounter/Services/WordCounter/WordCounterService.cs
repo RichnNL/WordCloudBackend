@@ -10,13 +10,23 @@ public class WordCounterService : IWordCounterService
             throw new ArgumentException("Text cannot be null, empty, or whitespace.", nameof(text));
         }
 
-        var entries = new List<WordEntry>
-        {
-            new("hello", 1),
-            new("world", 2)
-        };
+        var words = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var wordCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
-        return entries.ApplySortOrder(sortOrder)
-            .ToList();
+        foreach (var word in words)
+        {
+            if (wordCounts.TryGetValue(word, out var count))
+            {
+                wordCounts[word] = count + 1;
+            }
+            else
+            {
+                wordCounts[word] = 1;
+            }
+        }
+
+        var entries = wordCounts.Select(kvp => new WordEntry(kvp.Key, kvp.Value));
+
+        return entries.ApplySortOrder(sortOrder).ToList();
     }
 }
