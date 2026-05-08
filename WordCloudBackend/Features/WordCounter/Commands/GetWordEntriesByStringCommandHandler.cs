@@ -11,7 +11,7 @@ public class GetWordEntriesByStringCommandHandler(
         {
             ConvertToLowerCase = true,
             IgnoredWords = new HashSet<string>(),
-            MinimumWordLength = 2
+            MinimumWordLength = 3
         };
 
         var parsedText = textParserService.ParseText(request.Text, options);
