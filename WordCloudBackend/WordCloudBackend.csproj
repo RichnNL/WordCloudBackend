@@ -12,9 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Extensions\" />
+      <Folder Include="Features\WordCounter\Commands\" />
       <Folder Include="Features\WordCounter\Extensions\" />
-      <Folder Include="Features\WordCounter\Models\" />
+      <Folder Include="Features\WordCounter\Services\" />
     </ItemGroup>
 
 </Project>
