@@ -3,23 +3,23 @@
 public class GetWordEntriesByStringCommandTests
 {
     [Fact]
-    public async Task Handle_ShouldReturnDummyData()
+    public async Task Handle_ShouldCallServiceWithCorrectTextAndSortOrder()
     {
         // Arrange
-        var command = new GetWordEntriesByStringCommand("hello world");
-        var handler = new GetWordEntriesByStringCommandHandler();
+        var testText = "hello world";
+        var expectedResult = AutoBogus.AutoFaker.Generate<WordEntry>(2);
+        
+        var fakeService = A.Fake<IWordCounterService>();
+        A.CallTo(() => fakeService.CountWords(testText, WordEntrySortOrder.CountDescending)).Returns(expectedResult);
+        
+        var command = new GetWordEntriesByStringCommand(testText);
+        var handler = new GetWordEntriesByStringCommandHandler(fakeService);
 
         // Act
         var result = await handler.Handle(command);
 
         // Assert
-        result.Should().NotBeNull();
-        result.Should().HaveCount(2);
-        
-        result[0].Word.Should().Be("world");
-        result[0].Count.Should().Be(2);
-        
-        result[1].Word.Should().Be("hello");
-        result[1].Count.Should().Be(1);
+        result.Should().BeEquivalentTo(expectedResult);
+        A.CallTo(() => fakeService.CountWords(testText, WordEntrySortOrder.CountDescending)).MustHaveHappenedOnceExactly();
     }
 }

@@ -34,7 +34,9 @@ public static class WordCounterControllerExtensions
             })
             .WithName("CountWordsInPayload")
             .WithSummary("Analyses a large text payload")
-            .WithDescription("Accepts a text payload in the HTTP body and returns an array of words sorted by their frequency of occurrence. Best for articles or long paragraphs.");
+            .WithDescription("Accepts a text payload in the HTTP body and returns an array of words sorted by their frequency of occurrence. Best for articles or long paragraphs.")
+            .Produces<IEnumerable<WordEntry>>()
+            .Produces(StatusCodes.Status500InternalServerError);
 
         return group;
     }
@@ -53,7 +55,9 @@ public static class WordCounterControllerExtensions
             })
             .WithName("CountWordsInRoute")
             .WithSummary("Analyses a short text string from the URL")
-            .WithDescription("Extracts the text directly from the URL route and returns an array of words sorted by frequency. Note: Browsers enforce URL length limits, so only use this for short sentences.");
+            .WithDescription("Extracts the text directly from the URL route and returns an array of words sorted by frequency. Note: Browsers enforce URL length limits, so only use this for short sentences.")
+            .Produces<IEnumerable<WordEntry>>()
+            .Produces(StatusCodes.Status500InternalServerError);
         
         return group;
     }
