@@ -1,6 +1,4 @@
-﻿using WordCloudBackend.Features.WordCounter.Models;
-
-namespace WordCloudBackend.Extensions;
+﻿namespace WordCloudBackend.Features.WordCounter.Extensions;
 
 public static class WordEntryExtensions
 {
@@ -10,7 +8,7 @@ public static class WordEntryExtensions
     /// <param name="entries">The enumerable of WordEntry objects.</param>
     /// <param name="sortOrder">The sort order to apply (Ascending or Descending).</param>
     /// <returns>An ordered enumerable of WordEntry objects.</returns>
-    public static IEnumerable<WordEntry> OrderByCount(this IEnumerable<WordEntry> entries, WordEntrySortOrder sortOrder)
+    public static IEnumerable<WordEntry> ApplySortOrder(this IEnumerable<WordEntry> entries, WordEntrySortOrder sortOrder)
     {
         return sortOrder switch
         {

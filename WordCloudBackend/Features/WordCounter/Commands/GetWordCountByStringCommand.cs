@@ -1,4 +1,6 @@
-﻿namespace WordCloudBackend.Features.WordCounter.Commands;
+﻿using WordCloudBackend.Features.WordCounter.Extensions;
+
+namespace WordCloudBackend.Features.WordCounter.Commands;
 
 /// <summary>
 /// A command responsible for calculating the word count from a given string.
@@ -17,7 +19,7 @@ public class GetWordCountByStringCommand
             new("world", 2)
         };
         
-        return entries.OrderByCount(WordEntrySortOrder.CountDescending)
+        return entries.ApplySortOrder(WordEntrySortOrder.CountDescending)
             .ToList()
             .AsReadOnly();
     }
