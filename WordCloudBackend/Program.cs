@@ -1,5 +1,3 @@
-using WordCloudBackend.Features.WordCounter.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddSwagger();

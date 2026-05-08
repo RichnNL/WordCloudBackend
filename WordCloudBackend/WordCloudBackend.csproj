@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <Folder Include="Features\WordCounter\Commands\" />
-      <Folder Include="Features\WordCounter\Services\" />
     </ItemGroup>
 
 </Project>

@@ -4,6 +4,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddWordCounterServices(this IServiceCollection services)
     {
+        services.AddScoped<IWordCounterService, WordCounterService>();
         services.AddScoped<IRequestHandler<GetWordEntriesByStringCommand, ReadOnlyCollection<WordEntry>>, GetWordEntriesByStringCommandHandler>();
         
         return services;
