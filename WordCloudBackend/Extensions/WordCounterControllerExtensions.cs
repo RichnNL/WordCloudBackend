@@ -34,7 +34,12 @@ public static class WordCounterControllerExtensions
             })
             .WithName("CountWordsInPayload")
             .WithSummary("Analyses a large text payload")
-            .WithDescription("Accepts a text payload in the HTTP body and returns an array of words sorted by their frequency of occurrence. Best for articles or long paragraphs.")
+            .WithDescription("Accepts a text payload in the HTTP body and returns an array of words sorted by their frequency of occurrence. Best for articles or long paragraphs.\n\n" +
+                             "By default, the following parsing rules apply:\n" +
+                             "- Words must be at least 3 letters long to be counted.\n" +
+                             "- Words containing numbers are ignored.\n" +
+                             "- Special characters (punctuation) are removed.\n" +
+                             "- Text is converted to lowercase (e.g. 'Hello' and 'hello' are counted together).")
             .Produces<IEnumerable<WordEntry>>()
             .Produces(StatusCodes.Status500InternalServerError);
 
@@ -55,7 +60,12 @@ public static class WordCounterControllerExtensions
             })
             .WithName("CountWordsInRoute")
             .WithSummary("Analyses a short text string from the URL")
-            .WithDescription("Extracts the text directly from the URL route and returns an array of words sorted by frequency. Note: Browsers enforce URL length limits, so only use this for short sentences.")
+            .WithDescription("Extracts the text directly from the URL route and returns an array of words sorted by frequency. Note: Browsers enforce URL length limits, so only use this for short sentences.\n\n" +
+                             "By default, the following parsing rules apply:\n" +
+                             "- Words must be at least 3 letters long to be counted.\n" +
+                             "- Words containing numbers are ignored.\n" +
+                             "- Special characters (punctuation) are removed.\n" +
+                             "- Text is converted to lowercase (e.g. 'Hello' and 'hello' are counted together).")
             .Produces<IEnumerable<WordEntry>>()
             .Produces(StatusCodes.Status500InternalServerError);
         
