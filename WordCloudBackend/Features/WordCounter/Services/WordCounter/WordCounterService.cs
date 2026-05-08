@@ -2,8 +2,14 @@
 
 public class WordCounterService : IWordCounterService
 {
+    /// <inheritdoc />
     public IList<WordEntry> CountWords(string text, WordEntrySortOrder sortOrder)
     {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            throw new ArgumentException("Text cannot be null, empty, or whitespace.", nameof(text));
+        }
+
         var entries = new List<WordEntry>
         {
             new("hello", 1),
