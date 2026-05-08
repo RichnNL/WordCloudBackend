@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WordCloudBackend.Features.WordCounter.Commands;
 
 namespace WordCloudBackend.Extensions;
 
@@ -26,10 +25,10 @@ public static class WordCounterControllerExtensions
     /// </summary>
     private static RouteGroupBuilder MapWordCountByTextInPayloadEndpoint(this RouteGroupBuilder group)
     {
-        group.MapPost("/", ([FromBody] string text) => 
+        group.MapPost("/", async ([FromBody] string text, [FromServices] IMediator mediator) => 
             {
-                var command = new GetWordEntriesByStringCommand();
-                var sortedWordCounts = command.Execute(text);
+                var command = new GetWordEntriesByStringCommand(text);
+                var sortedWordCounts = await mediator.Send(command);
                 
                 return Results.Ok(sortedWordCounts);
             })
@@ -45,10 +44,10 @@ public static class WordCounterControllerExtensions
     /// </summary>
     private static RouteGroupBuilder MapWordCountByTextInRouteEndpoint(this RouteGroupBuilder group)
     {
-        group.MapGet("/{text}", ([FromRoute] string text) => 
+        group.MapGet("/{text}", async ([FromRoute] string text, [FromServices] IMediator mediator) => 
             {
-                var command = new GetWordEntriesByStringCommand();
-                var sortedWordCounts = command.Execute(text);
+                var command = new GetWordEntriesByStringCommand(text);
+                var sortedWordCounts = await mediator.Send(command);
                 
                 return Results.Ok(sortedWordCounts);
             })

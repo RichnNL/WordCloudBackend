@@ -3,13 +3,14 @@
 public class GetWordEntriesByStringCommandTests
 {
     [Fact]
-    public void Execute_ShouldReturnDummyData()
+    public async Task Handle_ShouldReturnDummyData()
     {
         // Arrange
-        var command = new GetWordEntriesByStringCommand();
+        var command = new GetWordEntriesByStringCommand("hello world");
+        var handler = new GetWordEntriesByStringCommandHandler();
 
         // Act
-        var result = command.Execute("hello world");
+        var result = await handler.Handle(command);
 
         // Assert
         result.Should().NotBeNull();
