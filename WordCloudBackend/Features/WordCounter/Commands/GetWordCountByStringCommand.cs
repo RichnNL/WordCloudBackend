@@ -9,7 +9,7 @@ public class GetWordCountByStringCommand
     /// Executes the command to retrieve word counts.
     /// </summary>
     /// <returns>A read-only collection of <see cref="WordEntry"/> items representing the word counts.</returns>
-    public ReadOnlyCollection<WordEntry> Execute()
+    public ReadOnlyCollection<WordEntry> Execute(string text)
     {
         var entries = new List<WordEntry>
         {
