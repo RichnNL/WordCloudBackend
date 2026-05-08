@@ -1,6 +1,7 @@
 ﻿// Global using directives
 
 global using System.Collections.ObjectModel;
+global using System.ComponentModel.DataAnnotations;
 global using WordCloudBackend.Extensions;
 global using WordCloudBackend.Features.WordCounter.Commands;
 global using WordCloudBackend.Features.WordCounter.Extensions;

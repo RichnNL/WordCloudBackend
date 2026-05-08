@@ -5,4 +5,4 @@
 /// </summary>
 /// <param name="Word">The extracted word.</param>
 /// <param name="Count">The number of times the word appears.</param>
-public record WordEntry(string Word, int Count);
+public record WordEntry([Required, MinLength(1)] string Word, [Range(1, int.MaxValue)] int Count);
